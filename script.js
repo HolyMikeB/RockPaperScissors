@@ -8,15 +8,20 @@ function computerPlay() {
     var response = responsesArray[responseRandom];
     return response
 }
-const playerSelection = '';
-const computerSelection = '';
+
 let computerScore = 0;
 let playerScore = 0;
+const rockButton = document.querySelector("#rock")
+const paperButton = document.querySelector("#paper")
+const scissorsButton = document.querySelector("#scissors")
+
+rockButton.addEventListener("click", playRound(playerSelection="rock"))
+paperButton.addEventListener("click", playRound(playerSelection="paper"))
+scissorsButton.addEventListener("click", playRound(playerSelection="scissors"))
 
 /*Round function*/
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay().toLowerCase();
-    playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
 
     console.log(computerSelection);
     /*take's player input and compares it to the computer's selection to determine the winner of the round and adds 1 to the winner's score*/
@@ -41,9 +46,9 @@ function playRound(playerSelection, computerSelection) {
 }
     /*game function*/
 function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(playRound())
-    }
+    // for (let i = 0; i < 5; i++) {
+    //     console.log(playRound())
+    // }
 
     if (computerScore > playerScore) {
         return 'Sorry! you lost ' + computerScore + ' to ' + playerScore + '!';
